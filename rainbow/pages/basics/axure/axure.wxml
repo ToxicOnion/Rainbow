@@ -1,0 +1,33 @@
+ <cu-custom bgImage="https://image.weilanwl.com/color2.0/plugin/sylb2244.jpg" isBack="{{true}}">
+ 	<view slot="backText">返回</view>
+ 	<view slot="content">Axure教程</view>
+ </cu-custom>
+ <view class="page-body">
+ 	<view class="page-section tc">
+ 		<!-- <video id="myVideo" src="cloud://onion.6f6e-onion-1259460489/AntD Library.mp4" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video> -->
+
+ 		<view class="weui-cells">
+ 			<view class="weui-cell weui-cell_input">
+ 				<view class="weui-cell__hd">
+ 					<view class="weui-label">弹幕内容</view>
+ 				</view>
+ 				<view class="weui-cell__bd">
+ 					<input bindblur="bindInputBlur" class="weui-input" type="text" placeholder="在此处输入弹幕内容" />
+ 				</view>
+ 			</view>
+ 		</view>
+ 		<view class="btn-area">
+ 			<button bindtap="bindSendDanmu" class="page-body-button" type="primary" formType="submit">发送弹幕</button>
+ 			<button bindtap="bindPlay" class="page-body-button" type="primary">播放</button>
+ 			<button bindtap="bindPause" class="page-body-button" type="primary">暂停</button>
+ 			<view class="cu-item arrow">
+ 				<view class="content" bindtap="copyLink" data-link="https://pan.baidu.com/s/1FP8151iTpII3ZQMonN2R1Q">
+ 					<text class="cuIcon-github text-black"></text>
+ 					<text class="text-grey">拷贝组件地址,密码:z6cb</text>
+ 				</view>
+ 			</view>
+ 		</view>
+ 	</view>
+ </view>
+
+ 

@@ -1,0 +1,91 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">时间轴</view>
+</cu-custom>
+<view class="cu-timeline">
+	<view class="cu-time">2019 year</view>
+	<view class="cu-item">
+		<view class="content">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-cyan">10 month</view>
+				<view class="cu-tag line-cyan">01 day</view>
+			</view>
+			<view class="margin-top"> 【昕馥】 v1.0版本正式上线</view>
+		</view>
+	</view>
+</view>
+
+<view class="cu-timeline">
+	<view class="cu-time">2020 year</view>
+	<view class="cu-item">
+		<view class="content">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-cyan">03 month</view>
+				<view class="cu-tag line-cyan">01 day</view>
+			</view>
+			<view class="margin-top"> 【昕馥】 v2.0:重构部分代码，添加权限认证、用户管理、功能拓展</view>
+		</view>
+	</view>
+	<view class="cu-item">
+		<view class="content">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-cyan">04 month</view>
+				<view class="cu-tag line-cyan">01 day</view>
+			</view>
+			<view class="margin-top"> 【昕馥】 v2.1:添加订餐及统计功能</view>
+		</view>
+	</view>
+	<view class="cu-item">
+		<view class="content">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-cyan">04 month</view>
+				<view class="cu-tag line-cyan">10 day</view>
+			</view>
+			<view class="margin-top"> 【昕馥】 v2.2:添加Axure视频功能</view>
+		</view>
+	</view>
+	<view class="cu-item">
+		<view class="content">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-cyan">04+ month</view>
+				<view class="cu-tag line-cyan">未来</view>
+			</view>
+			<view class="margin-top"><text> 【昕馥】 邀请有兴趣爱好者共同Code: \n ⭕️部门订餐功能(小程序端、服务端Vue前台、服务端SpringBoot后台)，实现在线订餐，商家可在页面查看订单并完成配送\n ⭕️娱乐休闲\n ⭕️闲鱼买卖\n ⭕️租借设备\n ⭕️其他有创意的功能 \n 有想法的同志可在页面点击|联系开发|和我聊聊</text></view>
+		</view>
+	</view>
+	<view class="cu-item text-cyan">
+		<view class="bg-cyan shadow-blue content">
+			<view class="cu-list menu-avatar radius">
+				<view class="cu-item">
+					<view class="cu-avatar round lg"><text class="cuIcon-crown text-gray"></text></view>
+					<view class="content">
+						<view class="text-grey">新用户</view>
+						<view class="text-gray text-sm">
+							<text class="cuIcon-infofill text-red"></text> 推荐被拒绝</view>
+					</view>
+					<view class="action">
+						<view class="text-grey text-xs">20:20</view>
+						<view class="cu-tag round bg-grey sm">5</view>
+					</view>
+				</view>
+				<view class="cu-item">
+					<view class="cu-avatar round lg">
+						<text class="cuIcon-evaluate_fill text-gray"></text>
+						<view class="cu-tag badge">99+</view>
+					</view>
+					<view class="content">
+						<view class="text-grey">支持者
+							<view class="cu-tag round orange sm">SVIP</view>
+						</view>
+						<view class="text-gray text-sm">
+							<text class="cuIcon-redpacket_fill text-red"></text> 收到红包</view>
+					</view>
+					<view class="action">
+						<view class="text-grey text-xs">20:20</view>
+						<text class="cuIcon-notice_forbid_fill text-gray"></text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

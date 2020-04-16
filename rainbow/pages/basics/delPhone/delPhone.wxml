@@ -1,0 +1,43 @@
+<cu-custom bgImage="https://image.weilanwl.com/color2.0/plugin/sylb2244.jpg" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">个人通讯录删除</view>
+</cu-custom>
+<!-- <view class="cu-list menu-avatar no-padding">
+  <view class=" cu-item touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="">
+    <view class="cu-avatar round lg">{{index}}</view>
+    <view class="content">
+      <view class="text-grey">
+        <text decode="{{true}}" space="{{true}}" class="text-abc">{{item.xingming}} &nbsp;&nbsp;</text>
+        <view class="text-gray text-sm">
+          {{item.company?item.company:'职工'}}
+        </view>
+      </view>
+      <view class="text-gray text-sm">
+        <block wx:if="{{item.shouji}}">手机:{{item.shouji}} </block>
+        <block wx:if="{{item.zuoji}}">办公:{{item.zuoji}}</block>
+      </view>
+    </view>
+    <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+  </view>
+</view> -->
+
+<view class="cu-list menu-avatar">
+	<view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{items}}" wx:key="" bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}" data-index="{{index}}">
+		<view class="cu-avatar round lg">{{index}}</view>
+		<view class="content">
+			<view class="text-grey">
+				<text decode="{{true}}" space="{{true}}" class="text-abc">{{item.xingming}} &nbsp;&nbsp;</text>
+				<view class="text-gray text-sm">
+					{{item.company?item.company:'职工'}}
+				</view>
+			</view>
+			<view class="text-gray text-sm">
+				<block wx:if="{{item.shouji}}">手机:{{item.shouji}} </block>
+				<block wx:if="{{item.zuoji}}">办公:{{item.zuoji}}</block>
+			</view>
+		</view>
+		<view class="move">
+			<view class="bg-red" data-itemID="{{item._id}}" bindtap="del" data-index="{{index}}"><text class="cuIcon-deletefill text-white margin-right-xs"></text>删除</view>
+		</view>
+	</view>
+</view>

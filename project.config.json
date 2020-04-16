@@ -1,0 +1,149 @@
+{
+	"miniprogramRoot": "rainbow/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"nodeModules": true
+	},
+	"appid": "wxea75e951e5f2582d",
+	"projectname": "rainbow",
+	"libVersion": "2.10.2",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+	"compileType": "miniprogram",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "Phone",
+					"pathName": "pages/phone/phone/phone",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "auth",
+					"pathName": "pages/auth/auth",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "phonebak",
+					"pathName": "pages/phone/phonebak/phonebak",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "plugins",
+					"pathName": "components/plugins/plugins",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "EditUser",
+					"pathName": "pages/editUser/editUser",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Ideas",
+					"pathName": "pages/ideas/ideas",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "delPhone",
+					"pathName": "pages/basics/delPhone/delPhone",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "Count",
+					"pathName": "pages/basics/count/count",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "plainGame",
+					"pathName": "plainGame/basics/games/games",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "OrderDetail",
+					"pathName": "pages/basics/orderDetail/orderDetail",
+					"query": "department=管控室&orderMenu=食堂盒饭",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "axure",
+					"pathName": "pages/basics/axure/axure",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

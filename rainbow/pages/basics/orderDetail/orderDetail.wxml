@@ -1,0 +1,32 @@
+<scroll-view scroll-y="{{modalName==null}}">
+	<cu-custom bgImage="https://image.weilanwl.com/color2.0/plugin/sylb2244.jpg" isBack="{{true}}">
+		<view slot="backText">返回</view>
+		<view slot="content">订单详情</view>
+	</cu-custom>
+	<view class="cu-bar bg-white solid-bottom margin-top">
+		<view class="action">
+			<text class="cuIcon-title text-orange "></text> {{department}}-{{orderMenu}}
+		</view>
+	</view>
+	<view class="cu-list menu-avatar">
+		<view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{orderDetail}}" wx:key="" bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}" data-index="{{index}}">
+			<view class="cu-avatar round lg" style="background-image:url({{item.userInfo.avatarUrl}})"></view>
+			<view class="content">
+				<view class="text-grey">{{item.realname}}</view>
+				<view class="text-gray text-sm">
+					{{item.userInfo.nickName}}
+					<text wx:if="{{item.isContact}}" class="cuIcon-phone text-blue"></text>
+					<text  wx:if="{{!item.isContact}}" class="cuIcon-phone text-grey"></text>
+					{{item.phone}}</view>
+
+			</view>
+			<view class="action">
+				<view class="text-grey text-xs">{{item.orderTimetxt}}</view>
+				<view class="cu-tag round bg-grey sm">{{item.orderCount}}份</view>
+			</view>
+			<view class="move">
+				<view class="bg-red" data-itemID="{{item._id}}" bindtap="delOrder" data-index="{{index}}"><text class="cuIcon-deletefill text-white margin-right-xs"></text>删除</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>

@@ -1,0 +1,79 @@
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <view class='text-center'>
+      <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+      <view class="padding">
+        <text class="text-xl">{{userInfo.nickName}}</text>
+      </view>
+    </view>
+    <view class="text-xl">~~~~
+      <text class="text-df">v{{version}}</text>
+    </view>
+    <view class="margin-top-sm">
+      <text>内部员工使用</text>
+    </view>
+    <image src="../../images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange">{{visitTotal}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-attentionfill"></text> View</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue">{{userCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-favorfill"></text> User</view>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-green">{{infoCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-fork"></text>Info</view>
+    </view>
+  </view>
+  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/editUser/editUser"  >
+        <text class="cuIcon-edit text-green"></text>
+        <text class="text-grey">信息完善</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="share">
+        <text class="cuIcon-friend text-mauve"></text>
+        <text class="text-grey">分享好友</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="contact">
+        <text class="cuIcon-service text-blue"></text>
+        <text class="text-grey">联系开发</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="showQrcode">
+        <text class="cuIcon-appreciatefill text-red"></text>
+        <text class="text-grey">赞赏支持</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="copyLink" data-link="https://git.weixin.qq.com/ToxicOnion/rainbow">
+        <text class="cuIcon-github text-black"></text>
+        <text class="text-grey">GitHub</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/ideas/ideas" hover-class="none">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">新功能</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

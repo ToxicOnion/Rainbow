@@ -1,0 +1,15 @@
+<scroll-view scroll-y class="scrollPage">
+  <!-- <view class="margin radius bg-gradual-green shadow-blur"> -->
+  <view class="bg-gradual-pink radius shadow-blur text-center">
+    <view class="animation-fade" style="padding-top:130rpx; animation-delay:1s">One Mre Thing</view>
+    <image src="../../images/wave.gif" mode="scaleToFill" class="gif-black response" style="height:150rpx"></image>
+  </view>
+  <view class='nav-list margin'>
+    <navigator open-type="navigate" hover-class='none' url="/{{item.fatherPack}}/basics/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+      <view class="nav-title">{{item.title}}</view>
+      <view class="nav-name">{{item.name}}</view>
+      <text class='cuIcon-{{item.icon}}'></text>
+    </navigator>
+  </view>
+  <view class='cu-tabbar-height'></view>
+</scroll-view>

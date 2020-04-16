@@ -1,0 +1,46 @@
+<cu-custom bgImage="https://image.weilanwl.com/color2.0/plugin/sylb2244.jpg" 
+  isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">通信录</view>
+</cu-custom>
+<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px;">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" bindinput='inputKeyword' placeholder="输入搜索关键词" confirm-type="search" value="{{inputKeyword}}"></input>
+  </view>
+  <view class="action" wx:if="{{inputKeyword==''?false:true}}">
+    <button class="cu-btn round line-cyan shadow" bindtap="reset">重置</button>
+  </view>
+</view>
+<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style="height:calc(100vh - {{CustomBar}}px - 50px)" scroll-with-animation="true" enable-back-to-top="true">
+  <block wx:for="{{groupPhone}}" wx:key="tag" wx:for-item='pitem'>
+    <view class="padding indexItem-{{pitem.tag}}" id="indexes-{{pitem.tag}}" data-index="{{pitem.tag}}">{{pitem.tag}}</view>
+    <view class="cu-list menu-avatar no-padding">
+      <!-- 遍历通讯录每个人 -->
+      <view class="cu-item" wx:for="{{pitem.data}}" wx:key="tag" wx:for-index="sub">
+        <view class="cu-avatar round lg">{{pitem.tag}}</view>
+        <view class="content" bindtap="call" data-item='{{item}}'>
+          <view class="text-grey">
+            <text  decode="{{true}}" space="{{true}}" class="text-abc">{{item.xingming}} &nbsp;&nbsp;</text>
+            <view class="text-gray text-sm">
+                   {{item.company?item.company:'职工'}}
+            </view>
+          </view>
+          <view class="text-gray text-sm">
+            <block wx:if="{{item.shouji}}">手机:{{item.shouji}} </block>
+            <block wx:if="{{item.zuoji}}">办公:{{item.zuoji}}</block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+<view class="indexBar" style="height:calc(100vh - {{CustomBar}}px - 50px)">
+  <view class="indexBar-box" bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove" style="height:calc(100vh - {{CustomBar}}px - 200px)">
+    <view class="indexBar-item" wx:for="{{list}}" wx:key="index" id="{{index}}" bindtouchstart="getCur" bindtouchend="setCur">{{list[index]}}</view>
+  </view>
+</view>
+<!--选择显示-->
+<view hidden="{{hidden}}" class="indexToast">
+  {{listCur}}
+</view>

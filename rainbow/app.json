@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/auth/auth",
+    "pages/index/index",
+    "pages/phone/phone/phone",
+    "pages/basics/addPhone/addPhone",
+    "pages/basics/delPhone/delPhone",
+    "pages/basics/order/order",
+    "pages/basics/myOrder/myOrder",
+    "pages/basics/orderDetail/orderDetail",
+    "pages/basics/count/count",
+    "pages/home/home",
+    "pages/editUser/editUser",
+    "pages/ideas/ideas",
+    "pages/basics/axure/axure"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "昕馥",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "subpackages": [
+    {
+      "root": "pages/plainGame",
+      "name":"plainGame",
+      "pages": [
+        "basics/games/games"
+      ]
+    }
+  ],  
+  
+  "sitemapLocation": "sitemap.json"
+}

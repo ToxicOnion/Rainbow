@@ -1,0 +1,10 @@
+.nickname_placeholder, .nickname_input {
+  text-align: right;
+}
+.switch-isLunch::after {
+	content: "\e776";
+}
+
+.switch-isLunch::before {
+	content: "\e777";
+}

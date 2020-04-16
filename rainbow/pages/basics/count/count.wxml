@@ -1,0 +1,47 @@
+<cu-custom bgImage="https://image.weilanwl.com/color2.0/plugin/sylb2244.jpg" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">订餐统计</view>
+</cu-custom>
+<view class="cu-form-group" wx:if="{{userInfo.department=='办公室'||userInfo.realname=='安阳'}}">
+	<view class="title">允许订餐</view>
+	<switch checked="{{iceOrder}}" bindchange="iceOrderChange"></switch>
+</view>
+<view class="cu-form-group" wx:if="{{userInfo.department=='办公室'||userInfo.realname=='安阳'}}">
+	<view class="title">分组选择</view>
+	<switch checked="{{groupType}}" bindchange="groupTypeChange"></switch>
+</view>
+<view class="cu-bar bg-white solid-bottom margin-top" wx:if="{{list.length==0}}">
+	<view class="action">
+		<text class="cuIcon-title text-orange "></text> 没有订单
+	</view>
+</view>
+
+<view class="VerticalBox">
+	<scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 100rpx)">
+		<view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+			{{item.tag}}
+		</view>
+	</scroll-view>
+	
+	<scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 100rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+		<view class="padding-top padding-lr" wx:for="{{list}}" wx:key id="main-{{index}}" wx:for-item="listItem">
+			<view class='cu-bar solid-bottom bg-white'>
+				<view class='action'>
+					<text class='cuIcon-title text-green'></text> {{listItem.tag}} </view>
+			</view>
+			<view class="cu-list menu">
+				<view class="cu-item" wx:for="{{listItem.data}}" wx:key>
+					<view class="content">
+						<view>
+							<text class="text-cut">{{item._id.orderMenu}}</text>
+							<view class="cu-tag round bg-orange sm">{{item.totalOrder}}份</view>
+						</view>
+						<view class="text-gray text-sm flex" data-orderMenu="{{item._id.orderMenu}}" data-department="{{listItem.tag}}" bindtap="navToDetail">
+							<text class="text-cut"> <text class="cuIcon-form text-orange margin-right-xs"></text> 点击查看详情</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>
