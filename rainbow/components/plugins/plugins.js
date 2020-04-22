@@ -39,32 +39,31 @@ Component({
         fatherPack: 'pages/plainGame'
       },
       {
-        title: '设计',
-        name: 'axure',
+        title: '配置',
+        name: 'setting',
         color: 'pink',
         icon: 'font',
         fatherPack: 'pages'
       },
       {
-        title: '聊天',
+        title: '畅所欲言',
         name: 'chat',
         color: 'blue',
         icon: 'tagfill',
         fatherPack: 'pages'
       },
-
       {
-        title: '相册',
-        name: 'photo',
+        title: '订会议室',
+        name: 'metting',
         color: 'mauve',
-        icon: 'icloading',
+        icon: 'copy',
         fatherPack: 'pages'
       },
       {
-        title: '电影',
-        name: 'movie',
+        title: '闲物',
+        name: 'shop',
         color: 'purple',
-        icon: 'copy',
+        icon: 'icloading',
         fatherPack: 'pages'
       },
       {

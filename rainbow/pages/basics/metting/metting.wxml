@@ -1,0 +1,126 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">会议室预定</view>
+</cu-custom>
+
+<view class="cu-bar margin-top bg-white">
+	<view class="action">
+		<text class="cuIcon-title text-blue"></text>预定时间轴
+	</view>
+	<view class="flex solid-bottom padding justify-end">
+		<view class="padding-sm margin-xs radius">
+			<button class="cu-btn icon" bindtap="order">
+				<text class="cuIcon-add text-green"></text>
+			</button>
+		</view>
+		<view class="padding-sm margin-xs radius">
+			<button class="cu-btn icon" bindtap="cancel">
+				<text class="cuIcon-close text-red"></text>
+			</button>
+		</view>
+	</view>
+</view>
+
+<view class="cu-timeline" wx:for="{{mettings}}" wx:key="{{mettings.tag}}" wx:for-item="exitem">
+	<view class="cu-time">{{exitem.tag}}</view>
+	<view class="cu-item" wx:for="{{exitem.data}}">
+		<view class="content">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-cyan">{{item.mettingRoom?item.mettingRoom:'未指定'}}</view>
+				<view class="cu-tag line-cyan">{{item.orderStartTime}}</view>
+			</view>
+			<view class="margin-top">
+				<text wx:if="{{!item.userInfo.realname}}">{{item.userInfo.nickName}}</text>
+				<text wx:if="{{item.userInfo.realname}}">{{item.userInfo.realname}}</text>
+				预定了会议室 {{item.mettingRoom?item.mettingRoom:'未指定'}} 开始时间:{{item.orderStartTime}} 结束时间:{{item.orderEndTime}} 内容:{{item.orderTopic?item.orderTopic:'未指定'}}
+			</view>
+
+
+		</view>
+	</view>
+</view>
+<!-- 添加会议预定 -->
+<view class="cu-modal {{modalName=='orderDialog'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">填写预定信息</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+		<view class="cu-form-group margin-top">
+			<view class="title">会议室</view>
+			<picker bindchange="PickMettingRoom" value="{{index}}" range="{{mettingRooms}}">
+				<view class="picker">
+					{{index?mettingRooms[index]:'未选择'}}
+				</view>
+			</picker>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">会议内容</view>
+			<input style="text-align: right;" placeholder="非密"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">日期选择</view>
+			<picker mode="date" value="{{orderDate}}" start="2020-04-20" end="2025-01-01" bindchange="DateChange">
+				<view class="picker">
+					{{orderDate}}
+				</view>
+			</picker>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">开始时间</view>
+			<picker mode="time" value="{{orderStartTime}}" start="08:00" end="20:00" bindchange="startTimeChange">
+				<view class="picker">
+					{{orderStartTime}}
+				</view>
+			</picker>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">结束时间</view>
+			<picker mode="time" value="{{orderEndTime}}" start="08:00" end="20:00" bindchange="endTimeChange">
+				<view class="picker">
+					{{orderEndTime}}
+				</view>
+			</picker>
+		</view>
+
+		<view class="cu-bar bg-white justify-end">
+			<view class="action">
+				<button class="cu-btn line-green text-green" bindtap="onOrderCancel">取消</button>
+				<button class="cu-btn bg-green margin-left" bindtap="onOrderConfirm" disabled="{{confirmBtnEnable}}">确定</button>
+			</view>
+		</view>
+	</view>
+</view>
+<!-- 取消会议预定 -->
+<view class="cu-modal {{modalName=='cancelDialog'?'show':''}}">
+	<view class="cu-dialog">
+		<view class="cu-bar bg-white justify-end">
+			<view class="content">取消预定信息</view>
+			<view class="action" bindtap="hideModal">
+				<text class="cuIcon-close text-red"></text>
+			</view>
+		</view>
+
+		<view class="cu-dialog" catchtap>
+			<radio-group class="block">
+				<view class="cu-list menu text-left">
+					<view class="cu-item" wx:for="{{myOrders}}" wx:key >
+						<label class="flex justify-between align-center flex-sub">
+							<view class="flex-sub">{{item.mettingRoom}} {{item.orderDate}} {{item.orderStartTime}}</view>
+							<radio class="red round"  data-id="{{item._id}}" data-index="{{index}}" checked="{{item.checked}}" bindtap="chooseRadio"></radio>
+						</label>
+					</view>
+				</view>
+			</radio-group>
+		</view>
+
+		<view class="cu-bar bg-white justify-end">
+			<view class="action">
+				<button class="cu-btn line-red text-red" bindtap="onOrderCancel">取消</button>
+				<button class="cu-btn bg-red margin-left" bindtap="onCancelConfirm" disabled="{{cancelBtnEnable}}">删除</button>
+			</view>
+		</view>
+	</view>
+</view>

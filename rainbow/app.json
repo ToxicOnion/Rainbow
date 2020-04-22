@@ -12,7 +12,10 @@
     "pages/home/home",
     "pages/editUser/editUser",
     "pages/ideas/ideas",
-    "pages/basics/axure/axure"
+    "pages/basics/axure/axure",
+    "pages/basics/setting/setting",
+    "pages/basics/metting/metting",
+    "pages/basics/chat/chat"
   ],
   "window": {
     "backgroundTextStyle": "light",

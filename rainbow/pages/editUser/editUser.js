@@ -3,12 +3,16 @@ import {
   updateUserDetailInfo,
   getUserInfo
 } from '../../utils/dboperate.js';
+
+import {
+  getConfig
+} from '../../utils/promiseFunc.js'
 const app = getApp();
 Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    picker: ['领导', '办公室', '论证室', '工程室', '信号室', '测控室', '管控室', '应用室', '其他'],
+    picker: [],
     multiArray: [
       ['楼号9527'],
       ['二楼', '三楼', '一楼', '四楼'],
@@ -40,6 +44,20 @@ Page({
 
   },
   async onLoad() {
+
+    getConfig({
+      setName: '部门配置'
+    }).then(res => {
+      if (res.length > 0) {
+        console.log(res)
+        this.setData({
+          picker: res[0].value
+        })
+      }
+    })
+
+
+
     let userInfo = await getUserInfo()
     if (userInfo) {
       this.setData({

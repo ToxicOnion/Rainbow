@@ -1,0 +1,7 @@
+.cu-bar {
+  height: 90rpx;
+}
+
+.cu-timeline .cu-time {
+  width: 150rpx;
+}

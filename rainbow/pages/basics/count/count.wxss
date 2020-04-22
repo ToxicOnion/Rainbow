@@ -1,6 +1,6 @@
 /* pages/component/nav/nav.wxss */
 .VerticalNav.nav {
-  width: 200rpx;
+  width: 400rpx;
   white-space: initial;
 }
 

@@ -3,6 +3,10 @@ import {
   addOrder,
   getUserInfo
 } from '../../../utils/dboperate.js';
+
+import {
+  getConfig
+} from '../../../utils/promiseFunc.js'
 var util = require('../../../utils/util.js');
 const app = getApp();
 const db = wx.cloud.database()
@@ -10,7 +14,7 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-
+    picker: [],
     basicsList: [{
       icon: 'radioboxfill',
       name: '授权登陆'
@@ -27,12 +31,13 @@ Page({
     //个人信息
     realname: '',
     department: '',
+    departindex: 0,
     isContact: true,
-    phone: '',
+    contactPhone: '',
 
     //订餐
     isLunch: true,
-    orderMenuArr: ['食堂盒饭', '食堂盒饭(回)', '食堂盒饭(素)', '肉炒饼', '素炒饼'],
+    orderMenuArr: [],
     orderIndex: 0,
     orderMenu: '',
     orderCount: 1,
@@ -41,12 +46,34 @@ Page({
     btnIsDisable: false,
 
   },
-  async onLoad() {
+  onLoad() {
     if (new Date().getHours() > 13) {
       this.setData({
         isLunch: false
       })
     }
+    getConfig({
+      setName: '订餐菜单'
+    }).then(res => {
+      if (res.length > 0) {
+        this.setData({
+          orderMenuArr: res[0].value
+        })
+      }
+    })
+
+    getConfig({
+      setName: '部门配置'
+    }).then(res => {
+      if (res.length > 0) {
+        console.log(res)
+        this.setData({
+          picker: res[0].value
+        })
+      }
+    })
+
+
   },
   async onShow() {
     let userInfo = await getUserInfo()
@@ -55,9 +82,11 @@ Page({
         modalName: 'dialog'
       })
     }
+    console.log(userInfo)
     if (userInfo) {
       this.setData({
-        ...userInfo
+        ...userInfo,
+        contactPhone: userInfo.phone
       })
     }
 
@@ -94,7 +123,8 @@ Page({
       orderTimetxt: timeNow,
       orderCount: parseInt(e.detail.value.orderCount),
       phone: this.data.phone,
-      userInfo:app.globalData.userInfo
+      department: this.data.department,
+      userInfo: app.globalData.userInfo
     }
     console.log(detailInfo)
     addOrder(detailInfo)
@@ -124,5 +154,16 @@ Page({
     wx.navigateTo({
       url: '../myOrder/myOrder',
     })
-  }
+  },
+  switchContact(e) {
+    this.setData({
+      isContact: e.detail.value
+    })
+  },
+  PickerChange(e) {
+    this.setData({
+      departindex: e.detail.value,
+      department: this.data.picker[e.detail.value]
+    })
+  },
 })

@@ -151,8 +151,9 @@ Page({
   },
   navToDetail(event) {
     console.log(event)
+    let departmentTmp = this.data.groupType?event.currentTarget.dataset.department:''
     wx.navigateTo({
-      url: '/pages/basics/orderDetail/orderDetail?department=' + event.currentTarget.dataset.department + '&orderMenu=' + event.currentTarget.dataset.ordermenu,
+      url: '/pages/basics/orderDetail/orderDetail?department=' + departmentTmp + '&orderMenu=' + event.currentTarget.dataset.ordermenu,
     })
   },
   iceOrderChange(e) {
@@ -176,7 +177,9 @@ Page({
       a = $.dateFromString({
         dateString: d.toJSON()
       })
-
+    this.setData({
+      groupType: e.detail.value
+    })
     if (e.detail.value) {
       db.collection('orderList').aggregate()
         .addFields({
@@ -213,7 +216,7 @@ Page({
           }
           wx.hideLoading()
         })
-    }else{
+    } else {
       db.collection('orderList').aggregate()
         .addFields({
           matched: $.gt(['$orderTime', a]),
@@ -246,6 +249,7 @@ Page({
               listCur: this.data.list[0]
             })
           }
+          console.log(this.data.list)
           wx.hideLoading()
         })
     }

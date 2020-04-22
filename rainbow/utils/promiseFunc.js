@@ -125,3 +125,58 @@ export const getOrderDetail = (param) => {
       })
   })
 }
+
+
+//获取会议
+export const queryMetting = (searchTime) => {  
+  return new Promise((resolve, reject) => {
+    wx.cloud.callFunction({
+        name: 'queryMetting',
+        data: {
+          searchTime:searchTime
+        }
+      })
+      .then(res => {
+        resolve(res.result.data)
+      })
+      .catch(err => {
+        reject(err)
+      })
+  })
+}
+
+
+//查询配置信息
+export const getConfig = (param) => {
+  return new Promise((resolve, reject) => {
+    wx.cloud.callFunction({
+        name: 'querySetting',
+        data: {
+          ...param
+        }
+      })
+      .then(res => {
+        resolve(res.result.data)
+      })
+      .catch(err => {
+        reject(err)
+      })
+  })
+}
+//更新配置信息
+export const updateConfig = (param) => {
+  return new Promise((resolve, reject) => {
+    wx.cloud.callFunction({
+        name: 'updateSetting',
+        data: {
+          ...param
+        }
+      })
+      .then(res => {
+        resolve(res.result.data)
+      })
+      .catch(err => {
+        reject(err)
+      })
+  })
+}

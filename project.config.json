@@ -24,7 +24,7 @@
 	},
 	"appid": "wxea75e951e5f2582d",
 	"projectname": "rainbow",
-	"libVersion": "2.10.2",
+	"libVersion": "2.10.4",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
@@ -141,6 +141,26 @@
 					"name": "axure",
 					"pathName": "pages/basics/axure/axure",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Order",
+					"pathName": "pages/basics/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Setting",
+					"pathName": "pages/basics/setting/setting",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "Metting",
+					"pathName": "pages/basics/metting/metting",
 					"scene": null
 				}
 			]

@@ -17,7 +17,7 @@
 					{{item.userInfo.nickName}}
 					<text wx:if="{{item.isContact}}" class="cuIcon-phone text-blue"></text>
 					<text  wx:if="{{!item.isContact}}" class="cuIcon-phone text-grey"></text>
-					{{item.phone}}</view>
+					{{item.contactPhone}}</view>
 
 			</view>
 			<view class="action">

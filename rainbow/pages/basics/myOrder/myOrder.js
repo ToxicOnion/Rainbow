@@ -44,7 +44,6 @@ Page({
     })
     //获取订单
     let myOrders = await getUserOrder();
-    console.log(myOrders)
     this.setData({
       myOrders:myOrders
     })

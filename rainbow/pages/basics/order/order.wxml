@@ -4,7 +4,7 @@
 </cu-custom>
 <view class="bg-white padding margin-top-xs">
 	<view class="cu-steps">
-		<view class="cu-item {{index>basics?'':'text-orange'}}" wx:for="{{basicsList}}" wx:key>
+		<view class="cu-item {{index==2?'text-green':'text-grey'}}" wx:for="{{basicsList}}" wx:key>
 			<text class="cuIcon-{{index>basics?'title':item.icon}}"></text> {{item.name}}
 		</view>
 	</view>
@@ -49,19 +49,42 @@
 
 
 	<view class="cu-form-group margin-top">
-		<view class="title">真实姓名</view>
+		<view class="title">取餐人</view>
 		<input class="nickname_input" placeholder-class="nickname_placeholder" name="realname" placeholder="" value="{{realname}}"></input>
 	</view>
-	<view class="cu-form-group">
+	<!-- <view class="cu-form-group">
 		<view class="title">部门名称</view>
 		<input class="nickname_input" placeholder-class="nickname_placeholder" name="department" placeholder="" value="{{department}}"></input>
+	</view> -->
+
+	<view class="cu-form-group">
+		<view class="title">部门选择</view>
+		<picker name="department" bindchange="PickerChange" value="{{departindex}}" range="{{picker}}">
+			<view class="picker">
+				{{picker[departindex]}}
+			</view>
+		</picker>
 	</view>
+
 	<view class="cu-form-group">
 		<view class="title">送餐联系人</view>
-		<switch name="isContact" checked="{{isContact}}"></switch>
+		<switch name="isContact" checked="{{isContact}}" bindchange="switchContact"></switch>
 	</view>
+	<view wx:if="{{isContact}}" class="cu-form-group">
+		<view class="title">联系方式</view>
+		<input name="contactPhone" placeholder="" value="{{contactPhone}}"></input>
+		<view class="cu-capsule radius">
+			<view class="cu-tag bg-blue">
+				+86
+			</view>
+			<view class="cu-tag line-blue">
+				中国大陆
+			</view>
+		</view>
+	</view>
+
 	<view class="padding flex flex-direction">
-		<button class="cu-btn bg-grey lg" formType="submit" disabled="{{btnIsDisable}}"> 提交</button>
-		<button class="cu-btn bg-red margin-tb-sm lg" bindtap="onMyOrder">我的订单</button>
+		<button class="cu-btn bg-green lg" formType="submit" disabled="{{btnIsDisable}}"> 提交</button>
+		<button class="cu-btn bg-white margin-tb-sm lg" bindtap="onMyOrder">我的订单</button>
 	</view>
 </form>

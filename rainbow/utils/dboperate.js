@@ -6,9 +6,12 @@ var pinyinUtil = require('../utils/pinyinUtil.js')
 var pinyinFirst = require('../utils/pinyinFirst.js')
 const db = wx.cloud.database();
 const _ = db.command;
+const $ = db.command.aggregate;
 const userInfoCollection = db.collection('userInfo');
 const phoneCollection = db.collection('phone')
 const orderCollection = db.collection('orderList')
+const mettingCollection = db.collection('metting')
+var util = require('util.js');
 
 const app = getApp();
 //更新用户详细信息
@@ -52,7 +55,7 @@ export const getUserInfo = () => {
   })
 }
 //更新所有人的拼音缩写
-export const updatePinyin = async() => {
+export const updatePinyin = async () => {
   const phoneList = await getPhonesByKeys({
     keyword: ''
   })
@@ -96,25 +99,55 @@ export const addOrder = async (orderInfo) => {
   })
 }
 //获取本用户10条订单
-export const getUserOrder =()=>{
+export const getUserOrder = () => {
   return new Promise((resolve, reject) => {
     const userInfo = app.globalData.userInfo
     orderCollection.where({
       _openid: userInfo.openid
-    }).limit(10).orderBy("orderTime","desc").get().then(res => {
+    }).limit(10).orderBy("orderTime", "desc").get().then(res => {
       resolve(res.data)
     });
   })
 }
 
 //根据部门获取订单
-export const getOrderDetail =(department,searchTime)=>{
+export const getOrderDetail = (department, searchTime) => {
   return new Promise((resolve, reject) => {
     orderCollection.where({
       department: department,
-      orderTime:_.gt(searchTime)
-    }).limit(20).orderBy("orderTime","desc").get().then(res => {
+      orderTime: _.gt(searchTime)
+    }).limit(20).orderBy("orderTime", "desc").get().then(res => {
       resolve(res.data)
     });
   })
 }
+
+//添加会议
+export const dbAddMetting = async (metting) => {
+  mettingCollection.add({
+    data: metting
+  })
+}
+
+
+//获取本用户10条会议订单
+export const getUserMettingOrder = () => {
+  return new Promise((resolve, reject) => {
+    const userInfo = app.globalData.userInfo
+    mettingCollection.where({
+      _openid: userInfo.openid
+    }).limit(6).orderBy("orderDate", "desc").get().then(res => {
+      resolve(res.data)
+    });
+  })
+}
+//删除会议订单
+export const delUserMettingOrder = (id) => {
+   mettingCollection.doc(id).remove()
+      .then(console.log)
+      .catch(console.error)
+}
+
+
+
+

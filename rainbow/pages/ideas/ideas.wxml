@@ -47,10 +47,19 @@
 	<view class="cu-item">
 		<view class="content">
 			<view class="cu-capsule radius">
-				<view class="cu-tag bg-cyan">04+ month</view>
+				<view class="cu-tag bg-cyan">04 month</view>
+				<view class="cu-tag line-cyan">30 day</view>
+			</view>
+			<view class="margin-top"> <text>【昕馥】 v2.3:\n添加系统配置功能(菜单配置、部门配置、会议室配置)；\n添加会议室预定功能；</text></view>
+		</view>
+	</view>
+	<view class="cu-item">
+		<view class="content">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-cyan">05+ month</view>
 				<view class="cu-tag line-cyan">未来</view>
 			</view>
-			<view class="margin-top"><text> 【昕馥】 邀请有兴趣爱好者共同Code: \n ⭕️部门订餐功能(小程序端、服务端Vue前台、服务端SpringBoot后台)，实现在线订餐，商家可在页面查看订单并完成配送\n ⭕️娱乐休闲\n ⭕️闲鱼买卖\n ⭕️租借设备\n ⭕️其他有创意的功能 \n 有想法的同志可在页面点击|联系开发|和我聊聊</text></view>
+			<view class="margin-top"><text> 【昕馥】 邀请有兴趣爱好者共同Code: \n ⭕️部门订餐功能(小程序端、服务端Vue前台、服务端SpringBoot后台)，实现在线订餐，商家可在页面查看订单并完成配送\n ⭕️娱乐休闲\n ⭕️闲鱼买卖\n ⭕️租借设备\n ⭕️其他创意 \n 有想法的同志可在页面点击|联系开发|和我聊聊</text></view>
 		</view>
 	</view>
 	<view class="cu-item text-cyan">

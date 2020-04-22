@@ -1,0 +1,39 @@
+<cu-custom bgImage="https://image.weilanwl.com/color2.0/plugin/sylb2244.jpg" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">配置参数</view>
+</cu-custom>
+
+<view class="cu-bar margin-top bg-white">
+	<view class="action">
+		<text class="cuIcon-title text-blue"></text>点击按钮选择配置内容
+	</view>
+	<view class="flex solid-bottom padding justify-end">
+		<view class="padding-sm margin-xs radius">
+			<button class="cu-btn icon" bindtap="addInput">
+				<text class="cuIcon-add text-blue"></text>
+			</button>
+		</view>
+		<view class="padding-sm margin-xs radius">
+			<button class="cu-btn icon" bindtap="saveSetting">
+				<text class="cuIcon-check text-green"></text>
+			</button>
+		</view>
+	</view>
+</view>
+
+<view class="grid col-5 padding-sm">
+  <view class="margin-tb-sm text-center" wx:for="{{settingList}}" wx:key wx:if="{{item.name!='white'}}">
+    <button class="cu-btn round line{{bordersize?bordersize:''}}-{{item.name}} {{shadow?'shadow':''}}" data-setname='{{item.setName}}' bindtap="selectSetting">{{item.title}}</button>
+  </view>
+</view>
+
+
+<view class='box' wx:for='{{array}}' wx:key='' wx:index='index'>
+	<view class='del'>
+		<button class="cu-btn icon bg-white" bindtap="delInput" data-idx='{{index}}'>
+			<text class="cuIcon-close text-red"></text>
+		</button>
+	</view>
+
+	<input type='text bg-white' class='b-ipt' placeholder='请输入' data-idx='{{index}}' value='{{inputVal[index]}}' bindinput='getInputVal' />
+</view>

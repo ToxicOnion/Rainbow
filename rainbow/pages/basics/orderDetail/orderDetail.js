@@ -40,7 +40,7 @@ Page({
         orderMenu: options.orderMenu
       }
     }
-    console.log(param.timeSearch)
+    console.log(param)
     getOrderDetail(param).then(res => {
       this.setData({
         orderDetail: res
